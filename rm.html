@@ -45,6 +45,51 @@
             margin: 0 auto 40px auto;
         }
 
+
+
+
+/* --- REGRA PARA O EFEITO DE DEGRADÊ NOS TÍTULOS (H1 e H2) --- */
+h1, h2 {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    display: inline-block; /* Necessário para o gradiente preencher apenas o texto */
+    
+    /* Gradiente Metálico */
+    background: linear-gradient(
+        to bottom, 
+        #f1d5a5 0%,   /* Topo claro */
+        #d4a356 45%,  /* Dourado médio */
+        #4e3419 50%,  /* Linha de sombra central (o "corte" do metal) */
+        #b88640 55%,  /* Retorno ao dourado */
+        #8a5d2e 100%  /* Base bronze escuro */
+    );
+    
+    /* Clips para fazer o degradê aparecer apenas no texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    font-weight: 700;
+    
+    /* Filtro para profundidade */
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 40px; 
+}
+
+h2 { 
+    font-size: 1.8rem; 
+    margin-bottom: 20px; 
+}
+
+
+
+        
         h1, h2 {
             font-family: 'Cinzel', serif;
             color: #ffdab3;
