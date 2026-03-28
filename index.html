@@ -148,13 +148,18 @@
             transition: 0.5s;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; height: 100%; width: 2px;
-            background: #8b0000;
-            transform: scaleY(0);
-            transition: 0.5s;
+      /* Localize este bloco no seu código (dentro de <style>) */
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 0; 
+    height: 100%; 
+    width: 2px; /* Aqui você muda a espessura da linha */
+    background: #ffc88a; /* <--- MUDE AQUI (Exemplo: #d4af37 para Dourado ou #ffffff para Branco) */
+    transform: scaleY(0);
+    transition: 0.5s;
+}
         }
 
         .card:hover {
