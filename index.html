@@ -17,38 +17,44 @@
             box-sizing: border-box;
         }
 
+        /* REGRA PARA O EFEITO DE DEGRADÊ NOS TÍTULOS */
+        .intro-text h2, 
+        .card h3, 
+        .footer-logo {
+            display: inline-block; /* Necessário para o gradiente preencher apenas o texto */
+            background: linear-gradient(
+                to bottom, 
+                #f1d5a5 0%,   /* Topo claro */
+                #d4a356 45%,  /* Dourado médio */
+                #4e3419 50%,  /* Linha de sombra central (o "corte" do metal) */
+                #b88640 55%,  /* Retorno ao dourado */
+                #8a5d2e 100%  /* Base bronze escuro */
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            /* Filtro para dar profundidade e brilho */
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+        }
 
+        /* --- MÓDULO DA LOGO (IMAGEM) --- */
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
 
-/* --- MÓDULO DA LOGO (IMAGEM) --- */
-.logo-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.img-titulo {
-    /* ============================================================ */
-    /* MUDANÇA AQUI: Altere o valor abaixo para regular o tamanho   */
-    /* Exemplo: 500px, 850px, 60vw (60% da largura da tela)         */
-    /* ============================================================ */
-    width: 1000px; 
-    
-    height: auto; /* Mantém a proporção correta da imagem */
-    max-width: 100%; /* Segurança para não quebrar em celulares */
-    
-    /* Filtro para garantir que a logo "salte" do fundo escuro */
-    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
-    
-    /* Mantém a animação de pulsação que você já usa */
-    animation: flicker 4s infinite alternate;
-    transition: width 0.3s ease; /* Suaviza a mudança se você alterar via código */
-}
-
-
-
-
-        
+        .img-titulo {
+            width: 1000px; 
+            height: auto;
+            max-width: 100%;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+            animation: flicker 4s infinite alternate;
+            transition: width 0.3s ease;
+        }
 
         body {
             background-color: #050505;
@@ -58,7 +64,6 @@
             overflow-x: hidden;
         }
 
-        /* Efeito de Vinheta */
         .vignette {
             position: fixed;
             top: 0;
@@ -70,13 +75,11 @@
             z-index: 100;
         }
 
-        /* Animação de Entrada */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cabeçalho de Impacto */
         header {
             height: 80vh;
             display: flex;
@@ -91,22 +94,11 @@
             border-bottom: 1px solid #1a0000;
         }
 
-        .titulo-principal {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: #ffdab3;
-            letter-spacing: 20px;
-            /* REMOVIDO: Brilho vermelho retirado para limpeza visual */
-            text-shadow: none; 
-            animation: flicker 4s infinite alternate;
-        }
-
         @keyframes flicker {
             0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
             20%, 24%, 55% { opacity: 0.8; }
         }
 
-        /* Navegação */
         nav {
             margin-top: 50px;
         }
@@ -132,7 +124,6 @@
             letter-spacing: 4px;
         }
 
-        /* Conteúdo Principal */
         main {
             max-width: 900px;
             margin: 0 auto;
@@ -147,9 +138,10 @@
 
         .intro-text h2 {
             font-family: 'Cinzel', serif;
-            color: #d1d1d1;
-            font-size: 2rem;
+            font-size: 2.5rem; /* Ajustado para dar destaque ao degradê */
             margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
         }
 
         .intro-text p {
@@ -157,7 +149,6 @@
             font-style: italic;
         }
 
-        /* Grid de Lore */
         .lore-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -192,12 +183,11 @@
 
         .card h3 {
             font-family: 'Cinzel', serif;
-            color: #ffc88a;
             margin-bottom: 20px;
             font-size: 1.4rem;
+            letter-spacing: 1px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 100px 20px;
@@ -207,15 +197,13 @@
 
         .footer-logo {
             font-family: 'Cinzel', serif;
-            color: #333;
             letter-spacing: 5px;
             font-size: 1.5rem;
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
             nav ul { flex-direction: column; align-items: center; gap: 20px; }
-            .titulo-principal { letter-spacing: 8px; font-size: 3rem; }
+            .intro-text h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -224,9 +212,9 @@
     <div class="vignette"></div>
 
     <header>
-    <div class="logo-area">
-        <img src="triwo.png" alt="Triohnte" class="img-titulo">
-    </div>
+        <div class="logo-area">
+            <img src="triwo.png" alt="Triohnte" class="img-titulo">
+        </div>
         
         <nav>
             <ul>
