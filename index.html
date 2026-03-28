@@ -17,6 +17,39 @@
             box-sizing: border-box;
         }
 
+
+
+/* --- MÓDULO DA LOGO (IMAGEM) --- */
+.logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.img-titulo {
+    /* ============================================================ */
+    /* MUDANÇA AQUI: Altere o valor abaixo para regular o tamanho   */
+    /* Exemplo: 500px, 850px, 60vw (60% da largura da tela)         */
+    /* ============================================================ */
+    width: 750px; 
+    
+    height: auto; /* Mantém a proporção correta da imagem */
+    max-width: 95%; /* Segurança para não quebrar em celulares */
+    
+    /* Filtro para garantir que a logo "salte" do fundo escuro */
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+    
+    /* Mantém a animação de pulsação que você já usa */
+    animation: flicker 4s infinite alternate;
+    transition: width 0.3s ease; /* Suaviza a mudança se você alterar via código */
+}
+
+
+
+
+        
+
         body {
             background-color: #050505;
             color: #a39b8f;
