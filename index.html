@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triohnte</title>
+    <title>Triohnte | Crônicas da Fantasia Sombria</title>
     
-    <link href="https://github.com/awgabry/Triohnte/blob/main/map%203.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/awgabry/Triohnte/main/map%203.png">
 
     <style>
         /* --- ESTILIZAÇÃO CSS --- */
@@ -16,14 +18,14 @@
         }
 
         body {
-            background-color: #050505; /* Um preto quase absoluto */
-            color: #a39b8f; /* Cor de osso/pergaminho velho */
+            background-color: #050505;
+            color: #a39b8f;
             font-family: 'Crimson Pro', serif;
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* Efeito de Vinheta (Sombreamento nas bordas) */
+        /* Efeito de Vinheta */
         .vignette {
             position: fixed;
             top: 0;
@@ -49,8 +51,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.2), #050505),
-                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop'); 
+            /* IMAGEM CORRIGIDA PARA LINK DIRETO */
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), #050505),
+                        url('https://raw.githubusercontent.com/awgabry/Triohnte/main/map%203.png'); 
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid #1a0000;
@@ -59,7 +62,7 @@
         .titulo-principal {
             font-family: 'Cinzel', serif;
             font-size: clamp(3rem, 10vw, 6rem);
-            color: #ffdab3; /* Vermelho Sangue */
+            color: #ffdab3;
             letter-spacing: 20px;
             text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
             animation: flicker 4s infinite alternate;
@@ -188,7 +191,7 @@
         /* Responsividade */
         @media (max-width: 768px) {
             nav ul { flex-direction: column; align-items: center; gap: 20px; }
-            .titulo-principal { letter-spacing: 8px; }
+            .titulo-principal { letter-spacing: 8px; font-size: 3rem; }
         }
     </style>
 </head>
