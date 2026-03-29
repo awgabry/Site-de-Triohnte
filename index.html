@@ -17,11 +17,10 @@
             box-sizing: border-box;
         }
 
-        .intro-text h2, 
-        .card h3, 
-        .footer-logo {
-            display: inline-block;
-            background: linear-gradient(
+        /* --- DEFINIÇÃO DO DEGRADÊ METÁLICO (Dourado) --- */
+        /* Criamos uma variável CSS para reutilizar o degradê facilmente */
+        :root {
+            --gold-gradient: linear-gradient(
                 to bottom, 
                 #f1d5a5 0%,   
                 #d4a356 45%,  
@@ -29,31 +28,41 @@
                 #b88640 55%,  
                 #8a5d2e 100%  
             );
+            /* Sombra padrão para o efeito metálico */
+            --gold-shadow: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+        }
+
+        /* Aplicação do degradê nos textos */
+        .intro-text h2, 
+        .card h3, 
+        .footer-logo {
+            display: inline-block;
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
             font-weight: 700;
-            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+            filter: var(--gold-shadow);
         }
 
+        /* --- APLICAÇÃO DO DEGRADÊ NA LOGO (TRIWO.PNG) --- */
         .img-titulo, .footer-logo-img {
-            background: linear-gradient(
-                to bottom, 
-                #f1d5a5 0%,   
-                #d4a356 45%,  
-                #4e3419 50%,  
-                #b88640 55%,  
-                #8a5d2e 100%  
-            );
+            background: var(--gold-gradient);
+            
+            /* A máscara que define o formato da logo */
             -webkit-mask-image: url('triwo.png');
             mask-image: url('triwo.png');
             -webkit-mask-size: contain;
             mask-size: contain;
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: center;
+
+            /* Remove a cor original da tag <img> */
             background-clip: border-box;
             object-position: -9999px; 
+            
+            /* Sombra e brilho */
             filter: drop-shadow(0 2px 2px rgba(0,0,0,0.9)) drop-shadow(0 0 5px rgba(212, 163, 86, 0.3));
         }
 
@@ -97,28 +106,43 @@
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid #1a0000;
-            position: relative; /* Necessário para posicionar as bordas */
+            position: relative; /* Necessário para as bordas */
         }
 
-        /* --- BORDAS LATERAIS (serd.png) --- */
+        /* --- BORDAS LATERAIS (SERD.PNG) COM DEGRADÊ --- */
         .borda-lateral {
             position: absolute;
             top: 0;
             height: 100%;
             width: 40px; /* Ajuste a largura conforme o arquivo serd.png */
-            background-image: url('serd.png');
-            background-repeat: repeat-y;
-            background-size: contain;
             z-index: 10;
+
+            /* 1. Aplicamos o degradê dourado como fundo */
+            background: var(--gold-gradient);
+
+            /* 2. Usamos serd.png como máscara para definir o formato */
+            -webkit-mask-image: url('serd.png');
+            mask-image: url('serd.png');
+            -webkit-mask-size: contain;
+            
+            /* Importante: a máscara deve repetir verticalmente */
+            -webkit-mask-repeat: repeat-y; 
+            mask-repeat: repeat-y;
+
+            /* 3. Adicionamos a sombra metálica */
+            filter: var(--gold-shadow);
         }
 
         .borda-esquerda {
-            left: 10px; /* Espaçamento da borda esquerda */
+            left: 10px;
         }
 
         .borda-direita {
-            right: 10px; /* Espaçamento da borda direita */
-            transform: scaleX(-1); /* Inverte a imagem para o lado direito se necessário */
+            right: 10px;
+            /* Inverte a máscara horizontalmente para o lado direito */
+            -webkit-mask-position: right;
+            mask-position: right;
+            transform: scaleX(-1); 
         }
 
         @keyframes flicker {
@@ -201,7 +225,7 @@
         @media (max-width: 768px) {
             nav ul { flex-direction: column; align-items: center; gap: 20px; }
             .intro-text h2 { font-size: 1.8rem; }
-            .borda-lateral { display: none; } /* Oculta em celulares para não cobrir o texto */
+            .borda-lateral { display: none; } /* Oculta em celulares */
         }
     </style>
 </head>
@@ -235,7 +259,7 @@
                 conexão com a realidade social eram abafados por batalhas judiais. Nas próprias palavras do mesmo: "Muito para um garoto de apenas 8 anos".</p>
             <br>
             <p>Tal problema se estendeu por anos, até que completasse seus 17 anos de idade, quando decidiu começar a escrever. Incentivado por um amigo, Pedro Raphael,
-                Gabriel decidiu sentar-se em seu quarto escuro e escrever um breve conto que tomou com o passar do tempo, cerca de 100 linhas. Posteriormente o conto: Cyannon e a batalha
+                Gabriel decidiu sentar-se em seu quarto escuro e escrever um breve conto que tomou com o passar do tempo, cerca of 100 linhas. Posteriormente o conto: Cyannon e a batalha
                 das ilhas galápagos, algo inicialmente sem parentesco nenhum com a obra atual, tomou forma para o Triohnte que conhecemos.</p>
             <br>
             <p>"Trionte, O segredo do império", primeira versão do livro, foi publicada em 12 de Dezembro de 2020 pela Editora CRV. Somente depois de receber algumas críticas
