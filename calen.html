@@ -132,14 +132,19 @@
             position: relative;
             border-bottom: 1px solid var(--ouro);
         }
-
+/* --- CSS CORRIGIDO PARA POSICIONAMENTO DA IMAGEM --- */
         .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
+            width: 100%;            /* Ocupa toda a largura da div pai */
+            height: 100%;           /* Ocupa toda a altura (180px) da div pai */
+            object-fit: cover;      /* Cobre a div sem distorcer, cortando o excesso */
+            display: block;
 
+            /* ESTA É A PROPRIEDADE CHAVE PARA O SEU POSICIONAMENTO: */
+            object-position: 50% 20%; /* Alinha horizontalmente no centro (50%) */
+                                      /* e verticalmente 20% do topo para baixo. */
+                                      /* Aumente o 20% para baixar a imagem, diminua para subir. */
+        }
+        /* --- FIM DO CSS CORRIGIDO --- */
         /* EFEITO DRAMÁTICO */
         .banner::after {
             content: "";
